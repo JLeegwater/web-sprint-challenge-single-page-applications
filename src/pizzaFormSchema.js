@@ -3,10 +3,10 @@ import * as yup from "yup";
 const pizzaFormSchema = yup.object().shape({
   size: yup.string().required("Size is required"),
   sauce: yup.string().oneOf(["Original Red", "BBQ Sauce"], "Choose a sauce"),
-  Pepperoni: yup.boolean(),
-  ThreeCheese: yup.boolean(),
-  Pinapple: yup.boolean(),
-  Sausage: yup.boolean(),
+  pepperoni: yup.boolean(),
+  threeCheese: yup.boolean(),
+  pinapple: yup.boolean(),
+  sausage: yup.boolean(),
 
   name: yup
     .string()

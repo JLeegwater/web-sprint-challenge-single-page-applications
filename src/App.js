@@ -12,10 +12,10 @@ import pizzaSchema from "./pizzaFormSchema";
 const initialFormValues = {
   size: "",
   sauce: "Original Red",
-  Pepperoni: false,
-  ThreeCheese: false,
-  Pinapple: false,
-  Saucage: false,
+  pepperoni: false,
+  threeCheese: false,
+  pinapple: false,
+  sausage: false,
   name: "",
   special: "",
 };
@@ -59,15 +59,23 @@ const App = () => {
   };
 
   const formSubmit = () => {
+    console.log(formValues);
     const pizza = {
       size: formValues.size.trim(),
       sauce: formValues.sauce.trim(),
-      toppings: ["Pepperoni", "ThreeCheese", "Pinapple", "Sausage"].filter(
-        (topping) => formValues[topping]
-      ),
+      pepperoni: formValues.pepperoni,
+      threeCheese: formValues.threeCheese,
+      pinapple: formValues.pinapple,
+      sausage: formValues.sausage,
+
+      // toppings: ["Pepperoni", "ThreeCheese", "Pinapple", "Sausage"].filter(
+      //   (topping) => formValues[topping]
+      // ),
       name: formValues.name.trim(),
       special: formValues.special.trim(),
     };
+
+    console.log(pizza);
     createPizza(pizza);
   };
   useEffect(() => {
