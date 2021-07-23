@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useRouteMatch } from "react-router-dom";
-
+import PizzaImg from "./Pizza.jpg";
 export default function PizzaForm(props) {
   const { values, submit, change, errors, disabled } = props;
 
@@ -19,16 +19,22 @@ export default function PizzaForm(props) {
   return (
     <div className="PizzaForm">
       <h1>Build your Own Pizza</h1>
-      <img src="Pizza.jpg"></img>
+      <img src={PizzaImg}></img>
       <form onSubmit={onSubmit}>
         <h2>Build your Own Pizza</h2>
 
         <lable>
           <h3>Choice of Size*</h3>
-          <select onChange={onChange} value={values.size} name="size">
+          <select
+            onChange={onChange}
+            value={values.size}
+            name="size"
+            id="size-dropdown"
+          >
             <option value="">---Size---</option>
             <option value="small">Small</option>
             <option value="medium">Medium</option>
+            <option value="large">Large</option>
             <option value="extra large">Extra Large</option>
           </select>
         </lable>
@@ -87,7 +93,17 @@ export default function PizzaForm(props) {
             />
           </label>
 
-          <div className="name">
+          <label>
+            Sausage
+            <input
+              type="checkbox"
+              name="Sausage"
+              onChange={onChange}
+              checked={values.Sausage}
+            />
+          </label>
+
+          <div className="name" id="name-input">
             <label>
               Name*
               <input
@@ -99,16 +115,28 @@ export default function PizzaForm(props) {
             </label>
           </div>
 
+          <div className="special" id="special-text">
+            <label>
+              Special Instructions
+              <input
+                value={values.special}
+                onChange={onChange}
+                name="special"
+                type="text"
+              />
+            </label>
+          </div>
+
           <div className="submit">
             <div className="errors">
               {/* 🔥 RENDER THE VALIDATION ERRORS HERE */}
-              <div>{errors.username}</div>
-              <div>{errors.email}</div>
-              <div>{errors.role}</div>
-              <div>{errors.civil}</div>
+              <p>{errors.name}</p>
+              <p>{errors.size}</p>
             </div>
 
-            <button disabled={disabled}>Submit Order</button>
+            <button disabled={disabled} id="order-button">
+              Submit Order
+            </button>
           </div>
         </div>
       </form>

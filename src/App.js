@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Link } from "react-router-dom";
 
 import * as yup from "yup";
 import "./App.css";
 import axios from "axios";
+
 import HomePage from "./homePage";
 import PizzaForm from "./pizzaForm";
 import pizzaSchema from "./pizzaFormSchema";
@@ -14,12 +15,14 @@ const initialFormValues = {
   Pepperoni: false,
   ThreeCheese: false,
   Pinapple: false,
+  Saucage: false,
   name: "",
+  special: "",
 };
 
 const initialFormErrors = {
-  name: "Please provide a name",
   size: "Please choose a size",
+  name: "Please enter your name",
 };
 
 const App = () => {
@@ -57,11 +60,13 @@ const App = () => {
 
   const formSubmit = () => {
     const pizza = {
-      name: formValues.name.trim(),
       size: formValues.size.trim(),
-      toppings: ["pepperoni", "olives", "onions", "peppers"].filter(
+      sauce: formValues.sauce.trim(),
+      toppings: ["Pepperoni", "ThreeCheese", "Pinapple", "Sausage"].filter(
         (topping) => formValues[topping]
       ),
+      name: formValues.name.trim(),
+      special: formValues.special.trim(),
     };
     createPizza(pizza);
   };
@@ -71,10 +76,12 @@ const App = () => {
 
   return (
     <div className="App">
-      <header>
-        <h1>Food Delivery App</h1>
-      </header>
-
+      <div className="header">
+        <div className="navBar">
+          <h1>Lambda Eats!</h1>
+          <Link to="/">Home</Link>
+        </div>
+      </div>
       <Switch>
         <Route path="/pizza">
           <PizzaForm
