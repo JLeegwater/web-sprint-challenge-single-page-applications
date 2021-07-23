@@ -20,7 +20,7 @@ export default function PizzaForm(props) {
     <div className="PizzaForm">
       <h1>Build your Own Pizza</h1>
       <img src={PizzaImg}></img>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} id="pizza-form">
         <h2>Build your Own Pizza</h2>
 
         <lable>
@@ -103,7 +103,7 @@ export default function PizzaForm(props) {
             />
           </label>
 
-          <div className="name" id="name-input">
+          <div className="name-input" id="name-input">
             <label>
               Name*
               <input
@@ -130,8 +130,8 @@ export default function PizzaForm(props) {
           <div className="submit">
             <div className="errors">
               {/* 🔥 RENDER THE VALIDATION ERRORS HERE */}
-              <p>{errors.name}</p>
-              <p>{errors.size}</p>
+              <div>{errors.name}</div>
+              <div>{errors.size}</div>
             </div>
 
             <button disabled={disabled} id="order-button">
