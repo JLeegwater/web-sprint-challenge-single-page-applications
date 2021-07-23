@@ -71,7 +71,7 @@ export default function PizzaForm(props) {
             Three Cheese
             <input
               type="checkbox"
-              name="Three Cheese"
+              name="ThreeCheese"
               onChange={onChange}
               checked={values.ThreeCheese}
             />

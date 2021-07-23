@@ -93,8 +93,3 @@ const App = () => {
   );
 };
 export default App;
-/*         values={formValues}
-        change={inputChange}
-        submit={formSubmit}
-        disabled={disabled}
-        errors={formErrors} */
