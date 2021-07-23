@@ -17,10 +17,10 @@ export default function PizzaForm(props) {
   };
 
   return (
-    <div className="PizzaForm">
+    <div className="PizzaForm" id="pizza-form">
       <h1>Build your Own Pizza</h1>
       <img src={PizzaImg}></img>
-      <form onSubmit={onSubmit} id="pizza-form">
+      <form onSubmit={onSubmit} className="pizza-form">
         <h2>Build your Own Pizza</h2>
 
         <lable>
